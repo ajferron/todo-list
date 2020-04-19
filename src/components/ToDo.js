@@ -35,7 +35,7 @@ class ToDo extends React.Component {
                 </div>
 
                 <button className="del-btn" onClick={ this.props.delete.bind(this, id) }>
-                    <img src="./x.svg" alt="close"></img>
+                    <img src="./icons/x.svg" alt="close"></img>
                 </button>
             </div>
         );

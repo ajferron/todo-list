@@ -9,7 +9,7 @@ function About() {
                 <h1>About</h1>
                 <button>
                     <Link to="/">
-                        <img src="./circle-x.svg" alt="Back"/>
+                        <img src="./icons/circle-x.svg" alt="Back"/>
                     </Link>
                 </button>
             </header>

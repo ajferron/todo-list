@@ -18,7 +18,7 @@ class AddForm extends React.Component {
         return (
             <form id="add-form" onSubmit={this.addItem}>
                 <button type="submit" value="submit">
-                    <img src="./add.svg" alt="add"/>
+                    <img src="./icons/add.svg" alt="add"/>
                 </button>
                 <input 
                   type="text" 
