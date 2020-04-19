@@ -21,7 +21,6 @@ class ToDo extends React.Component {
         }
     }
 
-
     inStyle = () => {
         return { marginRight: '10px' }
     }
