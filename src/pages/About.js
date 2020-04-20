@@ -1,24 +1,38 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import QueueAnim from 'rc-queue-anim';
 
-function About() {
-    return (
-        // Works like a ghost element, doesn't show in DOM
-        <React.Fragment>
-            <header>
-                <h1>About</h1>
-                <button>
-                    <Link to="/">
-                        <img src="./icons/circle-x.svg" alt="Back"/>
-                    </Link>
-                </button>
-            </header>
-            <p>
-                A simple To Do app made with React.js <br/><br/>
-                <a href="https://www.youtube.com/watch?v=sBws8MSXN7A"> React JS Crash Course </a>
-            </p>
-        </React.Fragment>
-    )
+class About extends React.Component {
+    render() {
+        const { show, fns } = this.props
+
+        return (
+            // Works like a ghost element, doesn't show in DOM
+            <React.Fragment>
+                <QueueAnim type={ ['right', 'left'] }
+                    duration={ 500 }
+                    ease={ ['easeOutQuart', 'easeInOutQuart'] }
+                    delay={ show ? 750 : 0 }
+                >
+                    {show ? [
+                        <div key="a">
+                            <header>
+                                <h1>About</h1>
+                                <button onClick={ fns.swap }>
+                                    <img src="./icons/circle-x.svg" alt="Back"/>
+                                </button>
+                            </header>
+                        </div>,
+                        <div key="b">
+                            <p>
+                                A simple To Do app made with React.js <br/><br/>
+                                <a href="https://www.youtube.com/watch?v=sBws8MSXN7A"> React JS Crash Course </a>
+                            </p>
+                        </div>
+                    ] : null}
+                </QueueAnim>
+            </React.Fragment>
+        )
+    }
 }
 
 export default About;

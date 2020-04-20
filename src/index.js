@@ -4,9 +4,4 @@ import App from './App';
 
 // ReactDOM renders the app componenet into div#root
 // The <App /> component is App.js
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));

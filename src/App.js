@@ -1,5 +1,4 @@
-import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import React from 'react'
 import {v4 as uuid} from 'uuid'
 import About from './pages/About'
 import Home from './pages/Home'
@@ -7,6 +6,8 @@ import './App.css';
 
 class App extends React.Component {
     state = {
+        home: true,
+        about: false,
         todos: [
             {
                 id: uuid(),
@@ -38,6 +39,13 @@ class App extends React.Component {
         }
     }
 
+    swap = () => { 
+        this.setState({
+            home: !this.state.home,
+            about: !this.state.about,
+        })
+    }
+
     complete = (id) => {
         this.setState({ todos: this.state.todos.map(todo => {
             if (todo.id === id) 
@@ -52,34 +60,30 @@ class App extends React.Component {
     }
 
     addItem = (title) => {
-        const newItem = {
+        const item = {
             id: uuid(),
             title, // Works becase key == value
             completed: false
         }
 
-        this.setState({todos: [...this.state.todos, newItem]})
+        this.setState({todos: [...this.state.todos, item]})
     }
 
     render() {
         const fns = {
+            swap: this.swap,
             complete: this.complete,
             delete: this.delete,
             addItem: this.addItem
         }
 
         return (
-            <Router>
-                <div className="App">
-                    <div className="wrapper" style={ this.wrapperStyle() }>
-                        <Route exact path="/" render={ props => (
-                            <Home todos={this.state.todos} fns={fns}/>
-                        )}/>
-                        
-                        <Route path="/About" component={ About }/>
-                    </div>
+            <div className="App">
+                <div className="wrapper" style={ this.wrapperStyle() }>
+                    <Home show={this.state.home} todos={this.state.todos} fns={fns}/>
+                    <About show={this.state.about} fns={fns}/>
                 </div>
-            </Router>
+            </div>
         );
     }
 }
