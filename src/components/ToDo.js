@@ -27,6 +27,7 @@ class ToDo extends React.Component {
 
     render() {
         const { id, title } = this.props.todo
+        
         return (
             <div className="row" style={ this.rowStyle() }>
                 <div className="wrapper" style={ this.wrpStyle() }>

@@ -40,7 +40,6 @@ class App extends React.Component {
     }
 
     complete = (id) => {
-        console.log(id);
         this.setState({ todos: this.state.todos.map(todo => {
             if (todo.id === id) 
                 todo.completed = !todo.completed
