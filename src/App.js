@@ -1,9 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {v4 as uuid} from 'uuid'
-import List from './components/List';
-import AddForm from './components/AddForm';
-import About from './components/About'
+import About from './pages/About'
+import Home from './pages/Home'
 import './App.css';
 
 class App extends React.Component {
@@ -58,29 +57,25 @@ class App extends React.Component {
             title, // Works becase key == value
             completed: false
         }
+
         this.setState({todos: [...this.state.todos, newItem]})
     }
 
     render() {
+        const fns = {
+            complete: this.complete,
+            delete: this.delete,
+            addItem: this.addItem
+        }
+
         return (
             <Router>
                 <div className="App">
                     <div className="wrapper" style={ this.wrapperStyle() }>
-                        <Route exact path="/" render={props => (
-                            <React.Fragment>
-                                <header> 
-                                    <h1 id="title">To Do List</h1>
-                                    <button>
-                                        <Link to="/About">
-                                            <img src="./icons/info.svg" alt="About"/>
-                                        </Link>
-                                    </button>
-                                </header>
-                                <List todos={ this.state.todos } complete={ this.complete } delete={ this.delete }/>
-                                <AddForm addItem={ this.addItem }/>
-                            </React.Fragment>
-                        )} />
-
+                        <Route exact path="/" render={ props => (
+                            <Home todos={this.state.todos} fns={fns}/>
+                        )}/>
+                        
                         <Route path="/About" component={ About }/>
                     </div>
                 </div>
