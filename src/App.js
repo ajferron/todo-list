@@ -1,8 +1,8 @@
 import React from 'react'
 import {v4 as uuid} from 'uuid'
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import About from './pages/About'
 import Home from './pages/Home'
-import './App.css';
 
 class App extends React.Component {
     state = {
@@ -78,12 +78,19 @@ class App extends React.Component {
         }
 
         return (
-            <div className="App">
-                <div className="wrapper" style={ this.wrapperStyle() }>
-                    <Home show={this.state.home} todos={this.state.todos} fns={fns}/>
-                    <About show={this.state.about} fns={fns}/>
+            <Router>
+                <div className="App">
+                    <div className="wrapper" style={ this.wrapperStyle() }>
+                        <Route exact path='/' render={(props) => 
+                            <Home show={this.state.home} todos={this.state.todos} fns={fns}/>
+                        }/>
+
+                        <Route exact path='/About' render={(props) => 
+                            <About show={this.state.about} fns={fns}/>
+                        }/>
+                    </div>
                 </div>
-            </div>
+            </Router>
         );
     }
 }

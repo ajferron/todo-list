@@ -1,5 +1,6 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
+import DelayLink from '../components/DelayLink';
 
 class About extends React.Component {
     render() {
@@ -11,15 +12,18 @@ class About extends React.Component {
                 <QueueAnim type={ ['right', 'left'] }
                     duration={ 500 }
                     ease={ ['easeOutQuart', 'easeInOutQuart'] }
-                    delay={ show ? 750 : 0 }
+                    delay={ show ? 100 : 0 }
                 >
                     {show ? [
                         <div key="a">
                             <header>
                                 <h1>About</h1>
-                                <button onClick={ fns.swap }>
-                                    <img src="./icons/circle-x.svg" alt="Back"/>
-                                </button>
+
+                                <DelayLink delay={500} to={'/'} onDelayStart={fns.swap}>
+                                    <button>
+                                        <img src="./icons/circle-x.svg" alt="Back"/>
+                                    </button>
+                                </DelayLink>
                             </header>
                         </div>,
                         <div key="b">
