@@ -26,12 +26,12 @@ class ToDo extends React.Component {
     }
 
     render() {
-        const { id, title } = this.props.todo
+        const { id, title, completed } = this.props.todo
         
         return (
             <div className="row" style={ this.rowStyle() }>
                 <div className="wrapper" style={ this.wrpStyle() }>
-                    <input type="checkbox" style={ this.inStyle() } onChange={ this.props.complete.bind(this, id) } /> 
+                    <input type="checkbox" style={ this.inStyle() } onChange={ this.props.complete.bind(this, id) } checked={completed} /> 
                     <p> {title} </p>
                 </div>
 

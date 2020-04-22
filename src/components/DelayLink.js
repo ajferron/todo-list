@@ -23,7 +23,6 @@ export const DelayLink = props => {
 
         onDelayStart(e, to);
         if (e.defaultPrevented) {
-            console.log('a')
             return;
         }
 
@@ -32,10 +31,8 @@ export const DelayLink = props => {
         /* timeout = */ 
         setTimeout(() => {
             if (replace) {
-                console.log('b')
                 history.replace(to);
             } else {
-                console.log('c')
                 history.push(to);
             }
             onDelayEnd(e, to);

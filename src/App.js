@@ -1,6 +1,6 @@
 import React from 'react'
 import {v4 as uuid} from 'uuid'
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 import About from './pages/About'
 import Home from './pages/Home'
 
