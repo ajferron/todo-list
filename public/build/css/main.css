@@ -74,3 +74,12 @@ header a button:hover {
     outline: none;
     font: inherit;
 }
+
+p a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+p a:hover {
+    border-bottom: 1px solid #0366d6;
+}
