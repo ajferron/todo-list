@@ -24,14 +24,17 @@ header {
     margin-bottom: 25px;
 }
 
-header button {
+header a {
     margin-top: 5px;
     margin-left: 15px;
+}
+
+header a button {
     transform: scale(0.65);
     transition: ease transform 0.25s;
 }
 
-header button:hover {
+header a button:hover {
     transform: scale(0.75);
 }
 
