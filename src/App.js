@@ -70,6 +70,8 @@ class App extends React.Component {
     }
 
     render() {
+        const {home, about, todos} = this.state
+        
         const fns = {
             swap: this.swap,
             complete: this.complete,
@@ -81,13 +83,8 @@ class App extends React.Component {
             <Router>
                 <div className="App">
                     <div className="wrapper" style={ this.wrapperStyle() }>
-                        <Route exact path='/' render={(props) => 
-                            <Home show={this.state.home} todos={this.state.todos} fns={fns}/>
-                        }/>
-
-                        <Route exact path='/About' render={(props) => 
-                            <About show={this.state.about} fns={fns}/>
-                        }/>
+                        <Route exact path='/' render={(props) => <Home show={home} todos={todos} fns={fns}/>} />
+                        <Route exact path='/About' render={(props) => <About show={about} fns={fns}/>} />
                     </div>
                 </div>
             </Router>

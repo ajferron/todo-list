@@ -3,38 +3,26 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-const portNum = process.argv[2];
+const port = 8080;
 
-// app.use(express.static(path.join(__dirname+'/uploads')));
+const sendIndex = (req, res) => res.sendFile(path.join(`${__dirname}/public/build/index.html`));
+const sendBuild = (req, res) => res.sendFile(path.join(`${__dirname}/public/build/${req.url}`));
+const sendPublic = (req, res) => res.sendFile(path.join(`${__dirname}/public/${req.url}`));
 
-// Send HTML at root, do not change
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname + '/public/build/index.html'));
-});
+app.get('/', sendIndex);
+app.get('/About', sendIndex);
 
-// Send HTML at root, do not change
-app.get('/About', (req,res) => {
-    res.sendFile(path.join(__dirname + '/public/build/index.html'));
-});
+app.get('/static/media/*', sendBuild);
+app.get('/*.js', sendBuild);
+app.get('/*.css', sendBuild);
+app.get('/*.svg', sendBuild);
 
-app.get('/*.js', (req,res) => {
-    res.sendFile(path.join(`${__dirname}/public/build/${req.url}`));
-});
+app.get('/*.json', sendPublic);
+app.get('/*.ico', sendPublic);
 
-app.get('/*.css', (req,res) => {
-    res.sendFile(path.join(`${__dirname}/public/build/${req.url}`));
-});
+app.listen(port);
 
-app.get('/*.svg', (req,res) => {
-    res.sendFile(path.join(`${__dirname}/public/build/${req.url}`));
-});
-
-app.get('/*.json', (req,res) => {
-    res.sendFile(path.join(`${__dirname}/public/${req.url}`));
-});
-
-app.listen(portNum);
-console.log('Running app at localhost: ' + portNum);
+console.log(`Running app at localhost: ${port}`);
 
 
 module.exports = app
