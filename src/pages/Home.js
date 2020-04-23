@@ -10,10 +10,11 @@ class Home extends React.Component {
 
         return (
             <React.Fragment>
-                <QueueAnim type={ ['right', 'left'] }
-                    duration={ 500 }
+                <QueueAnim 
+                    type={ ['right', 'left'] }
                     ease={ ['easeOutQuart', 'easeInOutQuart'] }
                     delay={ show ? 100 : 0 }
+                    duration={ 500 }
                 >
                     {show ? [
                         <div key="a">
