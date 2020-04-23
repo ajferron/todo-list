@@ -30,7 +30,7 @@ class ToDo extends React.Component {
         
         return (
             <div className="row" style={ this.rowStyle() }>
-                <div className="wrapper" style={ this.wrpStyle() }>
+                <div className="row-wrapper" style={ this.wrpStyle() }>
                     <input type="checkbox" style={ this.inStyle() } onChange={ this.props.complete.bind(this, id) } checked={completed} /> 
                     <p> {title} </p>
                 </div>

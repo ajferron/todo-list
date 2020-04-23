@@ -11,6 +11,16 @@ body {
     font-family: 'FS Albert'
 }
 
+.wrapper {
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    min-width: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
 button {
     border: none;
     outline: inherit;
@@ -84,4 +94,11 @@ p a {
 
 p a:hover {
     border-bottom: 1px solid #0366d6;
+}
+
+@media only screen and (max-width: 500px) {
+    .wrapper {
+        width: 80%;
+        min-width: 200px;
+    }
 }

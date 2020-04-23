@@ -7,7 +7,6 @@ class About extends React.Component {
         const { show, fns } = this.props
 
         return (
-            // Works like a ghost element, doesn't show in DOM
             <React.Fragment>
                 <QueueAnim type={ ['right', 'left'] }
                     duration={ 500 }

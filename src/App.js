@@ -27,18 +27,6 @@ class App extends React.Component {
         ]
     }
 
-    wrapperStyle = () => {
-        return {
-            position: 'absolute',
-            width: '50%',
-            height: '75%',
-            minWidth: '500px', 
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)'
-        }
-    }
-
     swap = () => { 
         this.setState({
             home: !this.state.home,
@@ -71,7 +59,7 @@ class App extends React.Component {
 
     render() {
         const {home, about, todos} = this.state
-        
+
         const fns = {
             swap: this.swap,
             complete: this.complete,
@@ -82,7 +70,7 @@ class App extends React.Component {
         return (
             <Router>
                 <div className="App">
-                    <div className="wrapper" style={ this.wrapperStyle() }>
+                    <div className="wrapper">
                         <Route exact path='/' render={(props) => <Home show={home} todos={todos} fns={fns}/>} />
                         <Route exact path='/About' render={(props) => <About show={about} fns={fns}/>} />
                     </div>
