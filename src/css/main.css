@@ -24,6 +24,7 @@ body {
 button {
     border: none;
     outline: inherit;
+    background: none;
 }
 
 button:hover {
@@ -94,6 +95,39 @@ p a {
 
 p a:hover {
     border-bottom: 1px solid #0366d6;
+}
+
+.content {
+    margin-top: 15px;
+}
+
+button#github {
+    display: flex;
+    align-items: center;
+    border: 1px solid #2F3542;
+    border-radius: 5px;
+    padding: 5px 7px;
+    font-size: 14px;
+    color: #2F3542;
+    transition: 0.5s ease;
+}
+
+button#github:hover {
+    background-color: #2F3542;
+    color: white;
+}
+
+button#github svg {
+    margin-right: 5px;
+}
+
+button#github svg path {
+    stroke: #2F3542;
+    transition: stroke 0.5s ease;
+}
+
+button#github:hover svg path {
+    stroke: white;
 }
 
 @media only screen and (max-width: 500px) {
