@@ -15,7 +15,7 @@ Use `npm start` to run the Express app.
 
 <br>
 
-## Screenshots
+## Demo
 
 <br>
 
